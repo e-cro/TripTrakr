@@ -12,8 +12,7 @@ namespace TripTrakrData
     {
         [Key]
         public int CountryId { get; set; }
-        [Required]
-        [Display(Name = "Country")]
+        
         public string CountryName { get; set; }
     }
 }

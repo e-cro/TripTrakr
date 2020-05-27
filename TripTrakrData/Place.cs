@@ -12,9 +12,9 @@ namespace TripTrakrData
     {
         [Key]
         public int PlaceId { get; set; }
-        [Required]
-        [Display(Name ="Place")]
+        
         public string PlaceName { get; set; }
+
         [ForeignKey(nameof(Country))]
         public int CountryId { get; set; }
         public virtual Country Country { get; set; }

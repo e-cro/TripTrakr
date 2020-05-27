@@ -13,20 +13,14 @@ namespace TripTrakrData
         [Key]
         public int TripId { get; set; }
 
-        [Required]
-        [Display(Name = "Trip Start Date")]
         public DateTime TripStartDate { get; set; } //can month and day be optional?
 
-        [Required]
-        [Display(Name = "Trip End Date")]
         public DateTime TripEndDate { get; set; } //can month and day be optional?
 
         [ForeignKey(nameof(Country))]
         public int CountryId { get; set; }
         public virtual Country Country { get; set; }
 
-        [Required]
-        [Display(Name = "Trip Title")]
         public string TripTitle
         {
             get
@@ -34,7 +28,6 @@ namespace TripTrakrData
                 return TripStartDate.Year + " " + Country.CountryName + " with " + Person.FirstName; //Need logic for listing all the countries and all the people
             }
         }
-
 
         [ForeignKey(nameof(Place))]
         public int PlaceId { get; set; }
@@ -46,10 +39,8 @@ namespace TripTrakrData
 
         //How to indicate if that person was travel companion on this trip? (Can be more than one person per trip, some might be travel companion and some might be visited -- maybe check starred function on ElevenNoteMVC module?)
 
-        [Display(Name = "Sites")]
         public string SitesDescription { get; set; }
 
-        [Display(Name = "Memories")]
         public string MemoriesDescription { get; set; }
 
         [ForeignKey(nameof(Photo))]
