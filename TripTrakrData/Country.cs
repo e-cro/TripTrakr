@@ -15,6 +15,7 @@ namespace TripTrakrData
         [Required]
         [Display(Name = "Country")]
         public string CountryName { get; set; }
-
+        [Required]
+        public Guid UserId { get; set; }
     }
 }

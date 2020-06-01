@@ -21,6 +21,7 @@ namespace TripTrakrData
         public int PlaceId { get; set; }
         public virtual Place Place { get; set; }
 
-
+        [Required]
+        public Guid UserId { get; set; }
     }
 }

@@ -14,6 +14,9 @@ namespace TripTrakrData
         public int TripId { get; set; }
 
         [Required]
+        public Guid UserId { get; set; }
+
+        [Required]
         [Display(Name = "Trip Start Date")]
         public DateTime TripStartDate { get; set; } //can month and day be optional?
 

@@ -13,6 +13,9 @@ namespace TripTrakrData
         public int PersonId { get; set; }
 
         [Required]
+        public Guid UserId { get; set; }
+
+        [Required]
         [Display(Name = "First Name")]
         [Range(1, 20, ErrorMessage = "Must be between 1 and 20 characters")]
         public string FirstName { get; set; }

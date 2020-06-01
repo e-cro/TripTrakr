@@ -18,7 +18,8 @@ namespace TripTrakrData
         [ForeignKey(nameof(Country))]
         public int CountryId { get; set; }
         public virtual Country Country { get; set; }
-
+        [Required]
+        public Guid UserId { get; set; }
 
     }
 }
