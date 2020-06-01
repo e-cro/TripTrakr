@@ -48,6 +48,19 @@ namespace TripTrakrData
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
+
+            //If issues with cascade delete, consider removing these two code blocks below
+            modelBuilder.Entity<Country>()
+     .HasMany<Place>(c => c.Places)
+     .WithRequired(s => s.Country)
+     .WillCascadeOnDelete();
+
+
+            modelBuilder.Entity<Place>()
+    .HasMany<Photo>(p => p.Photos)
+    .WithRequired(q => q.Place)
+    .WillCascadeOnDelete();
+
         }
 
     }

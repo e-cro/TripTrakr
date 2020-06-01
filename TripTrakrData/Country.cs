@@ -12,10 +12,14 @@ namespace TripTrakrData
     {
         [Key]
         public int CountryId { get; set; }
+
         [Required]
         [Display(Name = "Country")]
         public string CountryName { get; set; }
+
         [Required]
         public Guid UserId { get; set; }
+
+        public virtual ICollection<Place> Places { get; set; }
     }
 }

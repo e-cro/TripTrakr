@@ -12,9 +12,11 @@ namespace TripTrakrData
     {
         [Key]
         public int PhotoId { get; set; }
+
         [Required]
         [Display(Name = "Photo URL")]
         public string PhotoUrl { get; set; }
+
         public string PhotoCaption { get; set; }
 
         [ForeignKey(nameof(Place))]

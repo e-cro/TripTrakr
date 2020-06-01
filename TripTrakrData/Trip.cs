@@ -39,15 +39,15 @@ namespace TripTrakrData
         }
 
 
-        [ForeignKey(nameof(Place))]
-        public int PlaceId { get; set; }
-        public virtual Place Place { get; set; }
+        
 
         [ForeignKey(nameof(Person))]
         public int PersonId { get; set; }
         public virtual Person Person { get; set; }
-
         //How to indicate if that person was travel companion on this trip? (Can be more than one person per trip, some might be travel companion and some might be visited -- maybe check starred function on ElevenNoteMVC module?)
+
+        //[Display(Name = "Places")]
+        //public virtual ICollection<Place> Places { get; set; }
 
         [Display(Name = "Sites")]
         public string SitesDescription { get; set; }
@@ -55,8 +55,7 @@ namespace TripTrakrData
         [Display(Name = "Memories")]
         public string MemoriesDescription { get; set; }
 
-        [ForeignKey(nameof(Photo))]
-        public int PhotoId { get; set; }
-        public virtual Photo Photo { get; set; }
+        //[Display(Name = "Photos")]
+        //public virtual ICollection<Photo> Photos { get; set; }
     }
 }
