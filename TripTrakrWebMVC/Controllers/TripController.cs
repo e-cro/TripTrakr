@@ -48,6 +48,14 @@ namespace TripTrakrWebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var svc = CreateTripService();
+            var model = svc.GetTripById(id);
+
+            return View(model);
+        }
+
         private TripService CreateTripService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

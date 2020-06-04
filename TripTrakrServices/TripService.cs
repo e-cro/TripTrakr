@@ -50,8 +50,7 @@ namespace TripTrakrServices
                                 {
                                     TripId = e.TripId,
                                     TripStartDate = e.TripStartDate,
-                                    CountryName =
-e.Country.CountryName,
+                                    CountryName = e.Country.CountryName,
                                     FirstName = e.Person.FirstName,
                                 }
                         ); ;
@@ -59,5 +58,31 @@ e.Country.CountryName,
                 return query.ToArray();
             }
         }
+
+        public TripDetail GetTripById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Trips
+                        .Single(e => e.TripId == id && e.UserId == _userId);
+                return
+                    new TripDetail
+                    {
+                        TripId = entity.TripId,
+                        TripStartDate = entity.TripStartDate,
+                        TripEndDate = entity.TripEndDate,
+                        CountryName = entity.Country.CountryName,
+                        FirstName = entity.Person.FirstName,
+                        LastName = entity.Person.LastName,
+                        HowKnown = entity.Person.HowKnown,
+                        Places = entity.Places,
+                        MemoriesDescription = entity.MemoriesDescription
+
+                    };
+            }
+        }
+
     }
 }

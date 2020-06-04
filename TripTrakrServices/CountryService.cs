@@ -53,5 +53,22 @@ namespace TripTrakrServices
                 return query.ToArray();
             }
         }
+
+        public CountryDetail GetCountryById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Countries
+                        .Single(e => e.CountryId == id && e.UserId == _userId);
+                return
+                    new CountryDetail
+                    {
+                        CountryId = entity.CountryId,
+                        CountryName = entity.CountryName,
+                    };
+            }
+        }
     }
 }
