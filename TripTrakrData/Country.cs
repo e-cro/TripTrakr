@@ -20,6 +20,5 @@ namespace TripTrakrData
         [Required]
         public Guid UserId { get; set; }
 
-        public virtual ICollection<Place> Places { get; set; }
     }
 }

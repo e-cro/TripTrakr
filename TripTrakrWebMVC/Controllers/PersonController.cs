@@ -10,10 +10,28 @@ namespace TripTrakrWebMVC.Controllers
     [Authorize]
     public class PersonController : Controller
     {
-        // GET: Person
+        // GET: Person List
         public ActionResult Index()
         {
             var model = new PersonListItem[0];
+            return View(model);
+        }
+
+        //GET : Person Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        //POST : Person Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(PersonCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
             return View(model);
         }
     }

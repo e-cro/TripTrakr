@@ -68,9 +68,16 @@
     <Compile Include="Migrations\202006040724320_RemovedPhotos.Designer.cs">
       <DependentUpon>202006040724320_RemovedPhotos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006040909388_CreateModelsAndViews.cs" />
+    <Compile Include="Migrations\202006040909388_CreateModelsAndViews.Designer.cs">
+      <DependentUpon>202006040909388_CreateModelsAndViews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006041038123_RemovedPlacesClass.cs" />
+    <Compile Include="Migrations\202006041038123_RemovedPlacesClass.Designer.cs">
+      <DependentUpon>202006041038123_RemovedPlacesClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
-    <Compile Include="Place.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Trip.cs" />
   </ItemGroup>
@@ -87,6 +94,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006040724320_RemovedPhotos.resx">
       <DependentUpon>202006040724320_RemovedPhotos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006040909388_CreateModelsAndViews.resx">
+      <DependentUpon>202006040909388_CreateModelsAndViews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006041038123_RemovedPlacesClass.resx">
+      <DependentUpon>202006041038123_RemovedPlacesClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

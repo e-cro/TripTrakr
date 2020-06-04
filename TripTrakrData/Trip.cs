@@ -46,11 +46,10 @@ namespace TripTrakrData
         public int PersonId { get; set; }
         public virtual Person Person { get; set; }
 
-        //[Display(Name = "Places")]
-        //public virtual ICollection<Place> Places { get; set; }
 
-        [Display(Name = "Sites")]
-        public string SitesDescription { get; set; }
+        [Display(Name = "Places Visited")]
+        public string Places { get; set; }
+
 
         [Display(Name = "Memories")]
         public string MemoriesDescription { get; set; }

@@ -33,7 +33,6 @@ namespace TripTrakrData
         }
 
         public DbSet<Country> Countries { get; set; }
-        public DbSet<Place> Places { get; set; }
         public DbSet<Person> People { get; set; }
         public DbSet<Trip> Trips { get; set; }
 
@@ -47,12 +46,6 @@ namespace TripTrakrData
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
-
-            //If issues with cascade delete, consider removing below code block
-            modelBuilder.Entity<Country>()
-                .HasMany<Place>(c => c.Places)
-                .WithRequired(s => s.Country)
-                .WillCascadeOnDelete();
         }
 
     }
