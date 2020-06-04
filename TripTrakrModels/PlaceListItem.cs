@@ -5,24 +5,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TripTrakrData;
 
-namespace TripTrakrData
+namespace TripTrakrModels
 {
-    public class Place
+    public class PlaceListItem
     {
-        [Key]
         public int PlaceId { get; set; }
 
-        [Required]
         [Display(Name = "Place")]
         public string PlaceName { get; set; }
 
-        [ForeignKey(nameof(Country))]
-        public int CountryId { get; set; }
-        public virtual Country Country { get; set; }
-
-        [Required]
-        public Guid UserId { get; set; }
-
+        [Display(Name = "Country")]
+        public string CountryName { get; set; }
     }
 }
