@@ -33,9 +33,7 @@ namespace TripTrakrData
         }
 
         public DbSet<Country> Countries { get; set; }
-        public DbSet<Place> Places { get; set; }
         public DbSet<Person> People { get; set; }
-        public DbSet<Photo> Photos { get; set; }
         public DbSet<Trip> Trips { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

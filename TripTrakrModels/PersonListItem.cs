@@ -5,22 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TripTrakrData
+namespace TripTrakrModels
 {
-    public class Person
+    public class PersonListItem
     {
-        [Key]
         public int PersonId { get; set; }
 
-        [Required]
-        public Guid UserId { get; set; }
-
-        [Required]
+        [Display(Name = "First Name")]
+        [Range(1, 20, ErrorMessage = "Must be between 1 and 20 characters")]
         public string FirstName { get; set; }
 
-        [Required]
+        [Display(Name = "Last Name")]
+        [Range(1, 20, ErrorMessage = "Must be between 1 and 20 characters")]
         public string LastName { get; set; }
 
+        [Display(Name = "Full Name")]
         public string FullName
         {
             get
@@ -29,7 +28,8 @@ namespace TripTrakrData
             }
         }
 
-        [Required]
+        [Display(Name = "Relationship")]
+        [Range(2, 50)]
         public string HowKnown { get; set; }
     }
 }

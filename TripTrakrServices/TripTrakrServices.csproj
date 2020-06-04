@@ -54,11 +54,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CountryService.cs" />
+    <Compile Include="PersonService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TripService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TripTrakrData\TripTrakrData.csproj">
+      <Project>{6a9acf40-b674-4c18-a772-5e7a50835215}</Project>
+      <Name>TripTrakrData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TripTrakrModels\TripTrakrModels.csproj">
+      <Project>{6c84c04c-0835-4c88-b424-6a04bcc834c5}</Project>
+      <Name>TripTrakrModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
