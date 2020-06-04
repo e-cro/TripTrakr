@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TripTrakrModels;
+using TripTrakrServices;
 
 namespace TripTrakrWebMVC.Controllers
 {
@@ -13,7 +15,10 @@ namespace TripTrakrWebMVC.Controllers
         // GET: Trip Index
         public ActionResult Index()
         {
-            var model = new TripListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new TripService(userId);
+
+            var model = service.GetTrips();
             return View(model);
         }
 
@@ -28,11 +33,26 @@ namespace TripTrakrWebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(TripCreate model)
         {
-            if (ModelState.IsValid)
-            {
+            if (!ModelState.IsValid) return View(model);
 
-            }
+            var service = CreateTripService();
+
+            if (service.CreateTrip(model))
+            {
+                TempData["SaveResult"] = "Trip was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Trip could not be created.");
+
             return View(model);
+        }
+
+        private TripService CreateTripService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new TripService(userId);
+            return service;
         }
     }
 }

@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TripTrakrModels;
+using TripTrakrServices;
 
 namespace TripTrakrWebMVC.Controllers
 {
@@ -13,7 +15,11 @@ namespace TripTrakrWebMVC.Controllers
         // GET: Country Index
         public ActionResult Index()
         {
-            var model = new CountryListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new CountryService(userId);
+
+            var model = service.GetCountries();
+
             return View(model);
         }
 
@@ -28,11 +34,26 @@ namespace TripTrakrWebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CountryCreate model)
         {
-            if (ModelState.IsValid)
-            {
+            if (!ModelState.IsValid) return View(model);
 
-            }
+            var service = CreateCountryService();
+
+            if (service.CreateCountry(model))
+            {
+                TempData["SaveResult"] = "Country was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Country could not be created.");
+
             return View(model);
+        }
+
+        private CountryService CreateCountryService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new CountryService(userId);
+            return service;
         }
     }
 }
