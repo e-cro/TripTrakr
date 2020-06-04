@@ -55,11 +55,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CountryCreate.cs" />
+    <Compile Include="CountryDetail.cs" />
     <Compile Include="CountryListItem.cs" />
     <Compile Include="PersonCreate.cs" />
+    <Compile Include="PersonDetail.cs" />
     <Compile Include="PersonListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TripCreate.cs" />
+    <Compile Include="TripDetail.cs" />
     <Compile Include="TripListItem.cs" />
   </ItemGroup>
   <ItemGroup>

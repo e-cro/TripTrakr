@@ -47,8 +47,16 @@ namespace TripTrakrWebMVC.Controllers
             ModelState.AddModelError("", "Person could not be created.");
 
             return View(model);
-
         }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreatePersonService();
+            var model = svc.GetPersonById(id);
+
+            return View(model);
+        }
+
 
         private PersonService CreatePersonService()
         {

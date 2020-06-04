@@ -53,8 +53,26 @@ namespace TripTrakrServices
                                     HowKnown = e.HowKnown,
                                 }
                         );
-
                 return query.ToArray();
+            }
+        }
+
+        public PersonDetail GetPersonById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .People
+                        .Single(e => e.PersonId == id && e.UserId == _userId);
+                return
+                    new PersonDetail
+                    {
+                        PersonId = entity.PersonId,
+                        FirstName = entity.FirstName,
+                        LastName =  entity.LastName,
+                        HowKnown = entity.HowKnown,
+                    };
             }
         }
     }

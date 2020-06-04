@@ -76,6 +76,14 @@
     <Compile Include="Migrations\202006041038123_RemovedPlacesClass.Designer.cs">
       <DependentUpon>202006041038123_RemovedPlacesClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006041400028_AddedCountryNameToTrip.cs" />
+    <Compile Include="Migrations\202006041400028_AddedCountryNameToTrip.Designer.cs">
+      <DependentUpon>202006041400028_AddedCountryNameToTrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006041411126_ChangedTripProperties.cs" />
+    <Compile Include="Migrations\202006041411126_ChangedTripProperties.Designer.cs">
+      <DependentUpon>202006041411126_ChangedTripProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -100,6 +108,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006041038123_RemovedPlacesClass.resx">
       <DependentUpon>202006041038123_RemovedPlacesClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006041400028_AddedCountryNameToTrip.resx">
+      <DependentUpon>202006041400028_AddedCountryNameToTrip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006041411126_ChangedTripProperties.resx">
+      <DependentUpon>202006041411126_ChangedTripProperties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
