@@ -75,5 +75,22 @@ namespace TripTrakrServices
                     };
             }
         }
+
+        public bool UpdatePerson(PersonEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .People
+                        .Single(e => e.PersonId == model.PersonId && e.UserId == _userId);
+
+                entity.FirstName = model.FirstName;
+                entity.LastName = model.LastName;
+                entity.HowKnown = model.HowKnown;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

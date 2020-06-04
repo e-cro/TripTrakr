@@ -56,6 +56,47 @@ namespace TripTrakrWebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreateTripService();
+            var detail = service.GetTripById(id);
+            var model =
+                new TripEdit
+                {
+                    TripId = detail.TripId,
+                    TripStartDate = detail.TripStartDate,
+                    TripEndDate = detail.TripEndDate,
+                    Places = detail.Places,
+                    MemoriesDescription = detail.MemoriesDescription
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, TripEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.TripId != id)
+            {
+                ModelState.AddModelError("", "ID Mismatch");
+                return View(model);
+            }
+
+            var service = CreateTripService();
+
+            if (service.UpdateTrip(model))
+            {
+                TempData["SaveResult"] = "Your trip was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your trip could not be updated.");
+
+            return View();
+        }
+
         private TripService CreateTripService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

@@ -56,6 +56,44 @@ namespace TripTrakrWebMVC.Controllers
 
             return View(model);
         }
+        public ActionResult Edit(int id)
+        {
+            var service = CreateCountryService();
+            var detail = service.GetCountryById(id);
+            var model =
+                new CountryEdit
+                {
+                    CountryId = detail.CountryId,
+                    CountryName = detail.CountryName,
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, CountryEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.CountryId != id)
+            {
+                ModelState.AddModelError("", "ID Mismatch");
+                return View(model);
+            }
+
+            var service = CreateCountryService();
+
+            if (service.UpdateCountry(model))
+            {
+                TempData["SaveResult"] = "The country was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "The country could not be updated.");
+            return View(model);
+        }
+
+
 
         private CountryService CreateCountryService()
         {

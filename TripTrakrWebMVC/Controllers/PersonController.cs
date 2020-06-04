@@ -57,6 +57,44 @@ namespace TripTrakrWebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreatePersonService();
+            var detail = service.GetPersonById(id);
+            var model =
+                new PersonEdit
+                {
+                    PersonId = detail.PersonId,
+                    FirstName = detail.FirstName,
+                    LastName = detail.LastName,
+                    HowKnown = detail.HowKnown
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, PersonEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.PersonId != id)
+            {
+                ModelState.AddModelError("", "ID Mismatch");
+                return View(model);
+            }
+
+            var service = CreatePersonService();
+
+            if (service.UpdatePerson(model))
+            {
+                TempData["SaveResult"] = "The person was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "The person could not be updated.");
+            return View(model);
+        }
 
         private PersonService CreatePersonService()
         {

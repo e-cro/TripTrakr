@@ -84,5 +84,24 @@ namespace TripTrakrServices
             }
         }
 
+        public bool UpdateTrip(TripEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Trips
+                        .Single(e => e.TripId == model.TripId && e.UserId == _userId);
+
+                entity.TripStartDate = model.TripStartDate;
+                entity.TripEndDate = model.TripEndDate;
+                entity.Country.CountryName = model.CountryName;
+                entity.Places = model.Places;
+                entity.MemoriesDescription = model.MemoriesDescription;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
     }
 }

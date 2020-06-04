@@ -70,5 +70,20 @@ namespace TripTrakrServices
                     };
             }
         }
+
+        public bool UpdateCountry(CountryEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Countries
+                        .Single(e => e.CountryId == model.CountryId && e.UserId == _userId);
+
+                entity.CountryName = model.CountryName;
+                
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
