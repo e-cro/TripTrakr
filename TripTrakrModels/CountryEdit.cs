@@ -6,19 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TripTrakrData
+namespace TripTrakrModels
 {
-    public class Country
+    public class CountryEdit
     {
-        [Key]
         public int CountryId { get; set; }
 
-        [Required]
         [Display(Name = "Country")]
         public string CountryName { get; set; }
-
-        [Required]
-        public Guid UserId { get; set; }
-
     }
 }

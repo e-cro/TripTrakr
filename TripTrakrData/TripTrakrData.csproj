@@ -56,15 +56,65 @@
   <ItemGroup>
     <Compile Include="Country.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202006011439472_InitialCreate.cs" />
+    <Compile Include="Migrations\202006011439472_InitialCreate.Designer.cs">
+      <DependentUpon>202006011439472_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006040517399_RevisedDataLayer.cs" />
+    <Compile Include="Migrations\202006040517399_RevisedDataLayer.Designer.cs">
+      <DependentUpon>202006040517399_RevisedDataLayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006040724320_RemovedPhotos.cs" />
+    <Compile Include="Migrations\202006040724320_RemovedPhotos.Designer.cs">
+      <DependentUpon>202006040724320_RemovedPhotos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006040909388_CreateModelsAndViews.cs" />
+    <Compile Include="Migrations\202006040909388_CreateModelsAndViews.Designer.cs">
+      <DependentUpon>202006040909388_CreateModelsAndViews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006041038123_RemovedPlacesClass.cs" />
+    <Compile Include="Migrations\202006041038123_RemovedPlacesClass.Designer.cs">
+      <DependentUpon>202006041038123_RemovedPlacesClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006041400028_AddedCountryNameToTrip.cs" />
+    <Compile Include="Migrations\202006041400028_AddedCountryNameToTrip.Designer.cs">
+      <DependentUpon>202006041400028_AddedCountryNameToTrip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006041411126_ChangedTripProperties.cs" />
+    <Compile Include="Migrations\202006041411126_ChangedTripProperties.Designer.cs">
+      <DependentUpon>202006041411126_ChangedTripProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
-    <Compile Include="Photo.cs" />
-    <Compile Include="Place.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Trip.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202006011439472_InitialCreate.resx">
+      <DependentUpon>202006011439472_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006040517399_RevisedDataLayer.resx">
+      <DependentUpon>202006040517399_RevisedDataLayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006040724320_RemovedPhotos.resx">
+      <DependentUpon>202006040724320_RemovedPhotos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006040909388_CreateModelsAndViews.resx">
+      <DependentUpon>202006040909388_CreateModelsAndViews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006041038123_RemovedPlacesClass.resx">
+      <DependentUpon>202006041038123_RemovedPlacesClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006041400028_AddedCountryNameToTrip.resx">
+      <DependentUpon>202006041400028_AddedCountryNameToTrip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006041411126_ChangedTripProperties.resx">
+      <DependentUpon>202006041411126_ChangedTripProperties.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

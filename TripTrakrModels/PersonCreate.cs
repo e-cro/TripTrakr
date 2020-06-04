@@ -5,31 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TripTrakrData
+namespace TripTrakrModels
 {
-    public class Person
+    public class PersonCreate
     {
-        [Key]
-        public int PersonId { get; set; }
-
         [Required]
-        public Guid UserId { get; set; }
-
-        [Required]
+        [Display(Name = "First Name")]
+        [MaxLength(20, ErrorMessage = "Max 20 letters")]
         public string FirstName { get; set; }
 
         [Required]
+        [Display(Name = "Last Name")]
+        [MaxLength(20, ErrorMessage = "Max 20 letters")]
         public string LastName { get; set; }
 
-        public string FullName
-        {
-            get
-            {
-                return FirstName + " " + LastName;
-            }
-        }
-
         [Required]
+        [Display(Name = "Relationship")]
+        [MaxLength(50, ErrorMessage = "Max 50 letters")]
         public string HowKnown { get; set; }
     }
 }

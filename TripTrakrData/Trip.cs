@@ -18,45 +18,40 @@ namespace TripTrakrData
 
         [Required]
         [Display(Name = "Trip Start Date")]
-        public DateTime TripStartDate { get; set; } //can month and day be optional?
+        public DateTime TripStartDate { get; set; }
 
         [Required]
         [Display(Name = "Trip End Date")]
-        public DateTime TripEndDate { get; set; } //can month and day be optional?
+        public DateTime TripEndDate { get; set; }
 
         [ForeignKey(nameof(Country))]
         public int CountryId { get; set; }
         public virtual Country Country { get; set; }
 
-        [Required]
         [Display(Name = "Trip Title")]
         public string TripTitle
         {
             get
             {
-                return TripStartDate.Year + " " + Country.CountryName + " with " + Person.FirstName; //Need logic for listing all the countries and all the people
+                if (Person.FirstName != null)
+                { 
+                    return TripStartDate.Year + " " + Country.CountryName + " with " + Person.FirstName;
+                }
+                return TripStartDate.Year + " " + Country.CountryName;
             }
         }
 
-
-        [ForeignKey(nameof(Place))]
-        public int PlaceId { get; set; }
-        public virtual Place Place { get; set; }
 
         [ForeignKey(nameof(Person))]
         public int PersonId { get; set; }
         public virtual Person Person { get; set; }
 
-        //How to indicate if that person was travel companion on this trip? (Can be more than one person per trip, some might be travel companion and some might be visited -- maybe check starred function on ElevenNoteMVC module?)
 
-        [Display(Name = "Sites")]
-        public string SitesDescription { get; set; }
+        [Display(Name = "Places Visited")]
+        public string Places { get; set; }
+
 
         [Display(Name = "Memories")]
         public string MemoriesDescription { get; set; }
-
-        [ForeignKey(nameof(Photo))]
-        public int PhotoId { get; set; }
-        public virtual Photo Photo { get; set; }
     }
 }
