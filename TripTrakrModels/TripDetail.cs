@@ -11,9 +11,13 @@ namespace TripTrakrModels
     {
         public int TripId { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Trip Start Date")]
         public DateTime TripStartDate { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Trip End Date")]
         public DateTime TripEndDate { get; set; }
 
